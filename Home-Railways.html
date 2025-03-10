@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBooking-Railways</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=swap_horiz" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: #8d93bd94;
+        }
+        .head-content {
+           /* background-color: #3a45a5;*/
+           background-color:rgba(45, 132, 163, 0.415);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgb(252, 237, 237);
+            height: 70px;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #ffcc00;
+        }
+        .theme img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        .container {
+            background-image: url("railwaybg.png");
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: center;
+
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-left: 2rem;
+            
+        }
+        #from,#to,#DoB{
+            background-color: rgba(42, 58, 150, 0.801);
+            color:white;
+        }
+        input {
+            width: 300px;
+            height: 50px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 0,
+              'wght' 400,
+              'GRAD' 0,
+              'opsz' 24
+            }
+            .booking{
+                margin-top:3.5rem;
+               
+            }
+            .btn{
+                width: 300px;
+                height: 50px;
+                background-color: rgb(32, 97, 171);
+                font-size: 1rem;
+                border: 1px solid white;
+                border-radius: 5px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head-content">
+            <div class="logo">
+                <img src="GoBooking2.png" alt="Logo">
+                <span>GoBooking Railways </span>
+            </div>
+            <nav class="nav">
+                <a href="#Home">Home</a>
+                <a href="#About">About Us</a>
+                <a href="#Gallery">Gallery</a>
+                <a href="#Contact">Contact Us</a>
+            </nav>
+            <div class="theme">
+                <img src="night-mode.png" alt="Theme Toggle">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form class="form-group">
+                <input type="text" placeholder="From" id="from">
+                <span class="material-symbols-outlined">
+                    swap_horiz
+                    </span>
+                <input type="text" placeholder="To" id="to">
+                
+                <label for="DoB">Date of Travel</label>
+                <input type="date" name="DoB" id="DoB">
+                <div class="booking">
+                    <button class="btn">Book Now</button>
+                </div>
+            </form>
+            
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBooking - Easy Ticket Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #f8f9fa;
+            text-align: center;
+            background:url("bg3.jpg");
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height:80px;
+            z-index: 1000;
+
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f8f9fa;
+        }
+        .combo-logo{
+            display: flex;
+            flex-direction: row;
+            margin-right:35px;
+            padding:20px;
+        }
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-link {
+            color: #f8f9fa;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #ff9800;
+        }
+        .toggle-theme {
+            background: none;
+            border: none;
+            color: #f8f9fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        } 
+        .hero-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            color:black;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color:#141e30;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff9800;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e68900;
+        }
+        .books-blog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 2rem;
+            background: linear-gradient(to right, #141e30, #243b55);
+            border-radius: 10px;
+
+        }
+        .blog {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        .blog img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .main-content {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        footer {
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+        .tc{
+            text-align: center;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-content">
+        <div class="combo-logo">
+            <span><img src="GoBooking2.png" alt="" style="width: 50px; height: 50px; padding-right:0;"></span>
+            <a href="#" class="logo">GoBooking</a>
+        </div>
+       
+        <nav class="nav">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contantus" class="nav-link">Contact Us</a>
+        </nav> 
+        <button class="toggle-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    </header>
+    
+    <main class="hero-section">
+        <h1>Book Your Tickets with Ease</h1>
+        <p>Find the best deals on movies, travel, and more!</p>
+        <a href="#booking" class="btn">Get Started</a>
+    </main>
+    
+    <section class="books-blog">
+        <div class="blog"><img src="moviemain.jpg" alt="Movie"><div class="main-content">Book Movie Tickets Instantly!</div></div>
+        <div class="blog"><img src="busmain.png" alt="Bus"><div class="main-content">Affordable Bus Tickets Available!</div></div>
+        <div class="blog"><img src="trainmain.avif" alt="Train"><div class="main-content">Book Trains with Comfort!</div></div>
+        <div class="blog"><img src="airplanemain.jpg" alt="Flight"><div class="main-content">Get the Best Flight Deals!</div></div>
+        <div class="blog"><img src="hotelmain.avif" alt="Hotel"><div class="main-content">Find the Best Hotel Deals!</div></div>
+        <div class="blog"><img src="cricketmain.jpg" alt="Sports"><div class="main-content">Watch Live Matches!</div></div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 GoBooking. All rights reserved.</p>
+        <a href="#" class="tc">Terms & Conditions</a>
+    </footer>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+       
+    </script>
+</body>
+</html>
