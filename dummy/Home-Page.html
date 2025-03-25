@@ -80,6 +80,7 @@
             font-size: 1.2rem;
             margin: 2rem 0;
             color:#141e30;
+            color:black;
     
         }
         .btn {
@@ -250,7 +251,11 @@
             <a href="About-Home.html" class="nav-link">Features</a>
             <a href="#about" class="nav-link" id="abt">About</a>
         </nav> 
-        <button class="toggle-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+        <!-- <button class="toggle-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button> -->
+        <button class="toggle-theme" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        
     </header>
     
     <main class="hero-section">
@@ -299,7 +304,7 @@
     </footer>
     
     <script>
-        function toggleTheme() {
+       /* function toggleTheme() {
             document.body.classList.toggle("dark-mode");
             document.querySelector(".header-content").classList.toggle("dark-mode");
             document.querySelector(".books-blog").classList.toggle("dark-mode");
@@ -324,7 +329,32 @@
             if(localStorage.getItem("theme")=="dark"){
                 toggleTheme();
             }
-        }
+        }*/function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+    document.querySelector(".header-content").classList.toggle("dark-mode");
+    document.querySelector(".books-blog").classList.toggle("dark-mode");
+    document.querySelector(".about-section").classList.toggle("dark-mode");
+    document.querySelector("footer").classList.toggle("dark-mode");
+    document.querySelector(".hero-section").classList.toggle("dark-mode");
+
+    let themeIcon = document.getElementById("theme-icon");
+    if (document.body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("theme", "dark");
+    } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// Load stored theme on page load
+window.onload = function () {
+    if (localStorage.getItem("theme") === "dark") {
+        toggleTheme();
+    }
+};
+
+
        
     </script>
 </body>

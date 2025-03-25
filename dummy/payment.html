@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #243b55;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .payment-methods div {
+            width: 45%;
+        }
+        .payment-methods input[type="radio"] {
+            margin-right: 10px;
+        }
+        .payment-methods label {
+            font-size: 18px;
+            color: #333;
+        }
+        .confirm-button {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .confirm-button:hover {
+            background-color: #2ecc71;
+        }
+        .payment-summary {
+            margin-top: 20px;
+        }
+        .payment-summary div {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Payment for Your Booking</h1>
+    </header>
+
+    <div class="container">
+        <h2>Your Booking Details</h2>
+        <div class="payment-summary">
+            <div><strong>Booking Type:</strong> Movie - Chhaava</div>
+            <div><strong>Seats Selected:</strong> 2</div>
+            <div><strong>Amount:</strong> ₹500</div>
+        </div>
+
+        <h3>Select Payment Method</h3>
+        <div class="payment-methods">
+            <div>
+                <input type="radio" id="credit-card" name="payment" value="credit-card">
+                <label for="credit-card">Credit Card</label>
+            </div>
+            <div>
+                <input type="radio" id="debit-card" name="payment" value="debit-card">
+                <label for="debit-card">Debit Card</label>
+            </div>
+        </div>
+        <div class="payment-methods">
+            <div>
+                <input type="radio" id="net-banking" name="payment" value="net-banking">
+                <label for="net-banking">Net Banking</label>
+            </div>
+            <div>
+                <input type="radio" id="upi" name="payment" value="upi">
+                <label for="upi">UPI</label>
+            </div>
+        </div>
+
+        <button class="confirm-button" onclick="confirmPayment()">Confirm Payment</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function confirmPayment() {
+            alert("Payment Confirmed! Redirecting...");
+            // You can implement payment processing here or redirect to a confirmation page
+            window.location.href = "payment-confirmation.html"; // Redirects to a confirmation page
+        }
+    </script>
+</body>
+</html>

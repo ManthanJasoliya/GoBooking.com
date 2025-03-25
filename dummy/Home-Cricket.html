@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Seat Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .seating-chart {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .seat {
+      width: 50px;
+      height: 50px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .seat.selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cricket Seat Booking</h1>
+    <nav>
+      <a href="javascript:void(0);" onclick="showPage('home')">Home</a>
+      <a href="javascript:void(0);" onclick="showPage('booking')">Book a Seat</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <h2>Upcoming Matches</h2>
+    <ul>
+      <li>
+        <strong>India vs Australia</strong><br>
+        Date: 25th March, 2025<br>
+        Venue: Wankhede Stadium, Mumbai<br>
+        <a href="javascript:void(0);" onclick="showPage('booking')">Book Your Seat</a>
+      </li>
+      <li>
+        <strong>England vs New Zealand</strong><br>
+        Date: 26th March, 2025<br>
+        Venue: Lords, London<br>
+        <a href="javascript:void(0);" onclick="showPage('booking')">Book Your Seat</a>
+      </li>
+    </ul>
+  </main>
+
+  <main id="booking" class="hidden">
+    <h2>Choose Your Seats for India vs Australia</h2>
+    <div class="seating-chart">
+      <div class="row">
+        <div class="seat" onclick="selectSeat(this)">A1</div>
+        <div class="seat" onclick="selectSeat(this)">A2</div>
+        <div class="seat" onclick="selectSeat(this)">A3</div>
+        <div class="seat" onclick="selectSeat(this)">A4</div>
+      </div>
+      <div class="row">
+        <div class="seat" onclick="selectSeat(this)">B1</div>
+        <div class="seat" onclick="selectSeat(this)">B2</div>
+        <div class="seat" onclick="selectSeat(this)">B3</div>
+        <div class="seat" onclick="selectSeat(this)">B4</div>
+      </div>
+    </div>
+
+    <h3>Selected Seats: <span id="selectedSeats">None</span></h3>
+    <button onclick="confirmBooking()">Confirm Booking</button>
+  </main>
+
+  <main id="confirmation" class="hidden">
+    <h2>Booking Confirmation</h2>
+    <p>Thank you for your booking! Here are your booking details:</p>
+    <p><strong>Selected Seats:</strong> <span id="confirmedSeats"></span></p>
+    <p><strong>Total Cost:</strong> $50</p>
+    <p><strong>Confirmation Number:</strong> <span id="confirmationNumber"></span></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cricket Booking</p>
+  </footer>
+
+  <script>
+    let selectedSeats = [];
+
+    function selectSeat(seat) {
+      const seatName = seat.innerText;
+
+      if (selectedSeats.includes(seatName)) {
+        selectedSeats = selectedSeats.filter(seat => seat !== seatName);
+        seat.classList.remove('selected');
+      } else {
+        selectedSeats.push(seatName);
+        seat.classList.add('selected');
+      }
+
+      document.getElementById('selectedSeats').innerText = selectedSeats.join(', ') || 'None';
+    }
+
+    function confirmBooking() {
+      if (selectedSeats.length === 0) {
+        alert('Please select at least one seat.');
+        return;
+      }
+
+      // Hide booking page, show confirmation page
+      showPage('confirmation');
+
+      // Display the confirmed seats and generate a confirmation number
+      document.getElementById('confirmedSeats').innerText = selectedSeats.join(', ');
+      document.getElementById('confirmationNumber').innerText = 'ABC12345'; // You can generate a random or unique confirmation number here
+    }
+
+    function showPage(page) {
+      // Hide all pages
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('booking').classList.add('hidden');
+      document.getElementById('confirmation').classList.add('hidden');
+
+      // Show the selected page
+      document.getElementById(page).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
